@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="shortcut icon" href="Images/notes.ico" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+
+</head>
+
+<body>
+    <section class="container-fluid">
+        <section class="row justify-content-center">
+            <section class="col-6 col-sm-6 col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="form-data-1">
+                            <form class="text-center" method="post" id="registration1" style="color: #757575;">
+
+                                <h5 class="card-header info-color white-text text-center py-4">
+                                    <strong>Registration Form</strong>
+                                </h5>
+
+                                <div class="md-form">
+                                    <input type="text" id="fname" name="name1" class="form-control" required>
+                                    <label for="fname">First Name</label>
+                                </div>
+
+                                <div class="md-form">
+                                    <input type="text" id="lname" name="name2" class="form-control" required>
+                                    <label for="lname">Second Name</label>
+                                </div>
+
+                                <select class="mdb-select md-form form-control" name="gender" id="gender" required>
+                                    <option value="" disabled selected>Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="none">Preferred not to say</option>
+                                </select>
+
+                                <div class="md-form">
+                                    <input type="text" id="dob" name="dob" class="form-control" required>
+                                    <label for="dob">DOB</label>
+                                </div>
+
+                                <select class="mdb-select md-form form-control" name="city" id="city" searchable="Search here.." required>
+                                    <option value="" disabled selected>Choose your City</option>
+                                    <option value="Coimbatore">Coimbatore</option>
+                                    <option value="Banglore">Banglore</option>
+                                    <option value="Erode">Erode</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                </select>
+
+                                <select class="mdb-select md-form form-control" name="sports" id="sports" searchable="Search here.." required>
+                                    <option value="" disabled selected>Choose your sport</option>
+                                    <option value="Cricket">Cricket</option>
+                                    <option value="Football">Football</option>
+                                    <option value="VolleyBall">VolleyBall</option>
+                                    <option value="Tennis">Tennis</option>
+                                </select>
+                                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Done</button>
+                            </form>
+                        </div>
+
+                        <div id="form-data-2" style="display: none;">
+
+                            <form class="text-center" method="post" id="registration2" style="color: #757575;">
+
+                                <h5 class="card-header info-color white-text text-center py-4">
+                                    <strong>Date & Time</strong>
+                                </h5>
+
+                                <div class="md-form rounded-bg">
+                                    <input type="text" name="fromdate" id="fromdate" class="form-control" required>
+                                    <label for="fromdate" id="fromdate-label">From When?</label>
+                                </div>
+
+                                <div id="fromdiv" class="md-form"></div>
+
+                                <div class="md-form rounded-bg">
+                                    <input type="text" name="todate" id="todate" class="form-control" required>
+                                    <label for="todate" id="todate-label">To When?</label>
+                                </div>
+
+                                <div id="todiv" class="md-form"></div>
+
+                                <div id="rounded-bg">
+                                    <label for="group1">Start Time</label>
+                                    <fieldset id="group1">
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="start-time" name="startTime" id="startslot1"
+                                                value="07 : 30">
+                                            <label class="form-check-label" for="startslot1">07 : 30</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="start-time" name="startTime" id="startslot2"
+                                                value="07 : 45">
+                                            <label class="form-check-label" for="startslot2">07 : 45</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="start-time" name="startTime" id="startslot3"
+                                                value="08 : 00">
+                                            <label class="form-check-label" for="startslot3">08 : 00</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="start-time" name="startTime" id="startslot4"
+                                                value="08 : 15">
+                                            <label class="form-check-label" for="startslot4">08 : 15</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="start-time" name="startTime" id="startslot5"
+                                                value="08 : 30">
+                                            <label class="form-check-label" for="startslot5">08 : 30</label>
+                                        </span>
+                                    </fieldset>
+                                    <div id="start-time-error" class="form-group"></div>
+                                </div>
+                                <div id="rounded-bg">
+                                    <label for="group2">End Time</label>
+                                    <fieldset id="group2">
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="end-time" name="endTime" id="endslot1"
+                                                value="09 : 30">
+                                            <label class="form-check-label" for="endslot1">09 : 30</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="end-time" name="endTime" id="endslot2"
+                                                value="09 : 45">
+                                            <label class="form-check-label" for="endslot2">09 : 45</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="end-time" name="endTime" id="endslot3"
+                                                value="10 : 00">
+                                            <label class="form-check-label" for="endslot3">10 : 00</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="end-time" name="endTime" id="endslot4"
+                                                value="10 : 15">
+                                            <label class="form-check-label" for="endslot4">10 : 15</label>
+                                        </span>
+                                        <span class="form-check form-check-inline">
+                                            <input type="radio" class="end-time" name="endTime" id="endslot5"
+                                                value="10 : 30">
+                                            <label class="form-check-label" for="endslot5">10 : 30</label>
+                                        </span>
+                                    </fieldset>
+                                    <div id="end-time-error" class="form-group"></div>
+                                </div>
+
+                                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Save</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+
+
+</body>
+
+</html>
