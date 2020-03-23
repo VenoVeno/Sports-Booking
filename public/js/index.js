@@ -1,12 +1,12 @@
     var firebaseConfig = {
-        apiKey: "AIzaSyDVQpLcefecjpd4y1m51lw8n2L9QyAUEUA",
+        apiKey: "YOUR API KEY",
         authDomain: "infoooware.firebaseapp.com",
-        databaseURL: "https://infoooware.firebaseio.com",
+        databaseURL: "YOUR DATABASE URL",
         projectId: "infoooware",
         storageBucket: "infoooware.appspot.com",
-        messagingSenderId: "410010889393",
-        appId: "1:410010889393:web:5ee16b923aa7962e580690",
-        measurementId: "G-C77Q5Z5Y31"
+        messagingSenderId: "YOUR MESSAGE SENDER ID",
+        appId: "YOUR APP ID",
+        measurementId: "YOUR MEASUREMENT ID
     };
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
