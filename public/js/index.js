@@ -2,8 +2,8 @@
         apiKey: "YOUR API KEY",
         authDomain: "infoooware.firebaseapp.com",
         databaseURL: "YOUR DATABASE URL",
-        projectId: "infoooware",
-        storageBucket: "infoooware.appspot.com",
+        projectId: "YOUR PROJECT ID",
+        storageBucket: "YOUR STORAGE BUCKET",
         messagingSenderId: "YOUR MESSAGE SENDER ID",
         appId: "YOUR APP ID",
         measurementId: "YOUR MEASUREMENT ID
